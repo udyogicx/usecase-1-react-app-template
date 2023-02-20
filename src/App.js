@@ -5,7 +5,7 @@ import './App.scss';
 import { Nav, Navbar, Container }  from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Catalog from './components/Catalog/Catalog.js';
 import MyCart from './components/MyCart/Cart.js';
@@ -29,7 +29,7 @@ const RightLoginSignupMenu = () => {
   } else {
     menu = <>
       <Nav>
-      <Nav.Link href="#deets">Login</Nav.Link>          
+      <Nav.Link href="#deets">Login</Nav.Link>
       <Nav.Link href="#deets">Sign Up</Nav.Link></Nav>
     </>
   }
@@ -67,11 +67,11 @@ const App = () => {
     <>
     <PetStoreNav />
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Catalog />} />
-        <Route path="/mycart" element={<MyCart />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
+      <Switch>
+        <Route path="/" component={Catalog} />
+        <Route path="/mycart" component={MyCart} />
+        <Route path="/admin" component={Admin} />
+      </Switch>
     </BrowserRouter>
     </>
   );
