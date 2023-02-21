@@ -26,4 +26,6 @@ COPY --from=build-stage /usr/src/app/build /usr/share/nginx/html
 
 EXPOSE 80
 
+USER 10014
+
 CMD ["nginx", "-g", "daemon off;"]
