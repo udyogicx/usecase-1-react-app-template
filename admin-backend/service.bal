@@ -15,11 +15,11 @@ type Product record {|
     float price;
 |};
 
-configurable string host = ?;
-configurable string user = ?;
-configurable string password = ?;
-configurable string database = ?;
-configurable int port = ?;
+configurable string HOST = ?;
+configurable string USER = ?;
+configurable string PASSWORD = ?;
+configurable string DATABASE = ?;
+configurable int PORT = ?;
 
 # A service representing a network-accessible API
 # bound to port `9090`.
@@ -40,7 +40,7 @@ service / on new http:Listener(9090) {
             maxOpenConnections: 2,
             minIdleConnections: 1
         };
-        self.db = check new (host, user, password, database, port, mysqlOptions, poolOptions);
+        self.db = check new (HOST, USER, PASSWORD, DATABASE, PORT, mysqlOptions, poolOptions);
         self.migrate();
     }
 
