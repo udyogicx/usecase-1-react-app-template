@@ -17,7 +17,7 @@ type Product record {|
 
 configurable string HOST = ?;
 configurable string USER = ?;
-configurable string PASSWORD = ?;
+configurable string passWord = ?;
 configurable string DATABASE = ?;
 configurable int PORT = ?;
 
@@ -40,7 +40,7 @@ service / on new http:Listener(9090) {
             maxOpenConnections: 2,
             minIdleConnections: 1
         };
-        self.db = check new (HOST, USER, PASSWORD, DATABASE, PORT, mysqlOptions, poolOptions);
+        self.db = check new (HOST, USER, passWord, DATABASE, PORT, mysqlOptions, poolOptions);
         self.migrate();
     }
 
